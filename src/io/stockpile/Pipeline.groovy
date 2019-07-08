@@ -52,7 +52,7 @@ def helmDeploy(Map args) {
         println "Running deployment"
 
         // reimplement --wait once it works reliable
-        sh "helm upgrade --install ${args.name} ${args.chart_dir} --set imageTag=${args.imageTag} --namespace=${namespace}"
+        sh "helm upgrade --install --force ${args.name} ${args.chart_dir} --set imageTag=${args.imageTag} --namespace=${namespace}"
 
         // sleeping until --wait works reliably
         sleep(20)
